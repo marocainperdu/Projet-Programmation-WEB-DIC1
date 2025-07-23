@@ -1,0 +1,26 @@
+.galerie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.bloc-realisation {
+  max-width: 600px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.avant-apres {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.avant-apres img {
+  width: 250px;
+  height: auto;
+  border-radius: 4px;
+}
