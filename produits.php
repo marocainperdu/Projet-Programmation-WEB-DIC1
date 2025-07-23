@@ -1,20 +1,22 @@
 <?php
-include 'header.php';
+include 'header.php';  // Inclusion en haut
+include 'menu.php';    // Inclusion du menu existant
 
-
-// Liste des produits
+// Liste des produits avec 3 catégories : meubles, tapis, luminaires
 $products = [
     1 => ['categorie' => 'meubles', 'nom' => 'Canapé Wax', 'description' => 'Design africain en tissu wax', 'prix' => 150000, 'image' => 'images/meubles-category.jpg'],
-    2 => ['categorie' => 'tapis', 'nom' => 'Tapis berbère', 'description' => 'Fabriqué à la main, 100% laine', 'prix' => 75000, 'image' => 'images/tapis-category.jpg'],
-    3 => ['categorie' => 'artisanat', 'nom' => 'Sculpture en bois', 'description' => 'Artisanat local de Casamance', 'prix' => 45000, 'image' => 'images/artisanat-category.jpg'],
-    // Ajoute d’autres produits ici si besoin
+    2 => ['categorie' => 'meubles', 'nom' => 'Chaise en bois sculpté', 'description' => 'Chaise artisanale en bois', 'prix' => 85000, 'image' => 'images/meubles-chaise.jpg'],
+    3 => ['categorie' => 'tapis', 'nom' => 'Tapis berbère', 'description' => 'Fabriqué à la main, 100% laine', 'prix' => 75000, 'image' => 'images/tapis-category.jpg'],
+    4 => ['categorie' => 'tapis', 'nom' => 'Tapis en jute naturel', 'description' => 'Tapis écologique en fibres naturelles', 'prix' => 65000, 'image' => 'images/tapis-jute.jpg'],
+    5 => ['categorie' => 'luminaires', 'nom' => 'Lampe en osier', 'description' => 'Lampe artisanale tressée', 'prix' => 55000, 'image' => 'images/luminaires-osier.jpg'],
+    6 => ['categorie' => 'luminaires', 'nom' => 'Suspension en métal', 'description' => 'Lampe design industrielle', 'prix' => 120000, 'image' => 'images/luminaires-metal.jpg'],
 ];
 
 // Récupération des paramètres GET
 $selectedCategory = $_GET['category'] ?? null;
 $productId = $_GET['id'] ?? null;
 
-// Si un id est présent, afficher la fiche produit
+// Affichage fiche produit si id présent
 if ($productId && isset($products[$productId])) {
     $prod = $products[$productId];
     ?>
@@ -30,9 +32,7 @@ if ($productId && isset($products[$productId])) {
 
 <?php
 } else {
-// Sinon afficher la liste des produits (toute la liste ou filtrée par catégorie)
-
-// Filtrer les produits si catégorie demandée
+// Affichage liste produits, filtrée ou non
 $displayProducts = [];
 if ($selectedCategory) {
     foreach ($products as $id => $prod) {
@@ -78,7 +78,7 @@ if ($selectedCategory) {
   <nav class="categories-nav">
     <a href="produits.php?category=meubles">Meubles</a> | 
     <a href="produits.php?category=tapis">Tapis</a> | 
-    <a href="produits.php?category=artisanat">Artisanat Sénégalais</a> | 
+    <a href="produits.php?category=luminaires">Luminaires</a> | 
     <a href="produits.php">Toutes les catégories</a>
   </nav>
 </main>
