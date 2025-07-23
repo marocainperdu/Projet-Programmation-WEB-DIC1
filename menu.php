@@ -1,3 +1,7 @@
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
+
 <nav class="main-nav">
     <div class="nav-container">
         <!-- Logo -->
@@ -11,10 +15,10 @@
         <!-- Menu principal -->
         <ul class="nav-menu" id="nav-menu">
             <li class="nav-item">
-                <a href="index.php" class="nav-link active">Accueil</a>
+                <a href="index.php" class="nav-link <?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>">Accueil</a>
             </li>
             <li class="nav-item dropdown">
-                <a href="produits.php" class="nav-link">Produits</a>
+                <a href="produits.php" class="nav-link <?php echo ($currentPage == 'produits.php') ? 'active' : ''; ?>">Produits</a>
                 <div class="dropdown-content">
                     <a href="produits.php?category=meubles">Meubles</a>
                     <a href="produits.php?category=luminaires">Luminaires</a>
@@ -24,19 +28,19 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="services.php" class="nav-link">Services</a>
+                <a href="services.php" class="nav-link <?php echo ($currentPage == 'services.php') ? 'active' : ''; ?>">Services</a>
             </li>
             <li class="nav-item">
-                <a href="realisations.php" class="nav-link">Réalisations</a>
+                <a href="realisations.php" class="nav-link <?php echo ($currentPage == 'realisations.php') ? 'active' : ''; ?>">Réalisations</a>
             </li>
             <li class="nav-item">
-                <a href="blog.php" class="nav-link">Blog</a>
+                <a href="blog.php" class="nav-link <?php echo ($currentPage == 'blog.php') ? 'active' : ''; ?>">Blog</a>
             </li>
             <li class="nav-item">
-                <a href="apropos.php" class="nav-link">À propos</a>
+                <a href="apropos.php" class="nav-link <?php echo ($currentPage == 'apropos.php') ? 'active' : ''; ?>">À propos</a>
             </li>
             <li class="nav-item">
-                <a href="contact.php" class="nav-link">Contact</a>
+                <a href="contact.php" class="nav-link <?php echo ($currentPage == 'contact.php') ? 'active' : ''; ?>">Contact</a>
             </li>
         </ul>
 
@@ -61,4 +65,3 @@
         </button>
     </div>
 </nav>
-
