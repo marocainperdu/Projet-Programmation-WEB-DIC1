@@ -1,3 +1,20 @@
+<?php
+// Démarrer la session en premier
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Calculer le nombre d'articles dans le panier
+$nbArticles = 0;
+if (isset($_SESSION['panier'])) {
+    foreach ($_SESSION['panier'] as $item) {
+        $nbArticles += $item['quantite'];
+    }
+}
+
+// Déterminer la page actuelle
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

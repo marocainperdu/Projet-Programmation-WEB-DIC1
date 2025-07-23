@@ -1,16 +1,3 @@
-<?php
-$currentPage = basename($_SERVER['PHP_SELF']);
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-$nbArticles = 0;
-if (isset($_SESSION['panier'])) {
-    foreach ($_SESSION['panier'] as $item) {
-        $nbArticles += $item['quantite'];
-    }
-}
-?>
-
 <nav class="main-nav">
     <div class="nav-container">
         <!-- Logo -->
