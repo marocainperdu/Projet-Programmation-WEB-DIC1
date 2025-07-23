@@ -61,5 +61,4 @@
         </button>
     </div>
 </nav>
-<li><a href="produits.php">Produits</a></li>
-<li><a href="services.php">Services</a></li> <!-- si elle existe déjà -->
+
