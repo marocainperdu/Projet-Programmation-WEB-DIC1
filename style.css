@@ -816,3 +816,21 @@ button:hover {
   border-left: 5px solid #d4a574;
   border-radius: 8px;
 }
+.btn {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--text-white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* pour que ça ne ressemble pas à un lien classique */
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: var(--text-white);
+}
+
