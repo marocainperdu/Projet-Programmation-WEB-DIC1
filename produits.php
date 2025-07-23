@@ -25,7 +25,7 @@ if ($productId && isset($products[$productId])) {
       <img src="<?php echo $prod['image']; ?>" alt="<?php echo htmlspecialchars($prod['nom']); ?>" style="max-width:400px;">
       <p><?php echo htmlspecialchars($prod['description']); ?></p>
       <p class="prix"><?php echo number_format($prod['prix'], 0, ',', ' ') . ' XOF'; ?></p>
-      <button>Ajouter au panier</button>
+      <button class="btn-ajouter-panier" data-id="<?php echo $productId; ?>" data-nom="<?php echo htmlspecialchars($prod['nom']); ?>" data-prix="<?php echo $prod['prix']; ?>">Ajouter au panier</button>
       <p><a href="produits.php<?php echo $selectedCategory ? '?category='.$selectedCategory : ''; ?>">← Retour aux produits</a></p>
     </main>
 <?php
@@ -61,7 +61,7 @@ if ($productId && isset($products[$productId])) {
               </a>
               <p><?php echo htmlspecialchars($prod['description']); ?></p>
               <p class="prix"><?php echo number_format($prod['prix'], 0, ',', ' ') . ' XOF'; ?></p>
-              <button>Ajouter au panier</button>
+              <button class="btn-ajouter-panier" data-id="<?php echo $id; ?>" data-nom="<?php echo htmlspecialchars($prod['nom']); ?>" data-prix="<?php echo $prod['prix']; ?>">Ajouter au panier</button>
             </div>
           <?php endforeach; ?>
         <?php else: ?>
@@ -86,3 +86,19 @@ if ($productId && isset($products[$productId])) {
 
 include 'footer.php';
 ?>
+
+<div id="modal-panier" class="modal-panier" style="display:none;">
+  <div class="modal-content-panier">
+    <span class="close-modal-panier">&times;</span>
+    <h2 id="modal-produit-nom"></h2>
+    <form id="form-ajout-panier">
+      <input type="hidden" name="id" id="modal-produit-id">
+      <input type="hidden" name="nom" id="modal-produit-nom-input">
+      <input type="hidden" name="prix" id="modal-produit-prix">
+      <label for="modal-quantite">Quantité :</label>
+      <input type="number" name="quantite" id="modal-quantite" value="1" min="1" style="width:60px;">
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>

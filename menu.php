@@ -1,5 +1,14 @@
 <?php
 $currentPage = basename($_SERVER['PHP_SELF']);
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$nbArticles = 0;
+if (isset($_SESSION['panier'])) {
+    foreach ($_SESSION['panier'] as $item) {
+        $nbArticles += $item['quantite'];
+    }
+}
 ?>
 
 <nav class="main-nav">
@@ -53,7 +62,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <a href="panier.php" class="nav-action cart-link" title="Panier">
                 <i class="icon-cart"></i>
                 <span class="action-text">Panier</span>
-                <span class="cart-count" id="cart-count">0</span>
+                <span class="cart-count" id="cart-count"><?php echo $nbArticles; ?></span>
             </a>
         </div>
 
