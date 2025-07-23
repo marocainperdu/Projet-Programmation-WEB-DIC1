@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<?php include 'menu.php'; ?>
+
 
 <main class="services">
   <h1>Nos Services</h1>
