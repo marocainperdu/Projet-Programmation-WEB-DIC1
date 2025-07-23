@@ -751,3 +751,86 @@ h4 {
 .icon-design::before { content: "🎨"; }
 .icon-delivery::before { content: "🚚"; }
 .icon-warranty::before { content: "🛡️"; }
+/* Section produits */
+.produits {
+  padding: 2rem;
+}
+
+.categorie {
+  margin-bottom: 3rem;
+}
+
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.produit {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.produit img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.produit:hover {
+  transform: translateY(-5px);
+}
+
+.prix {
+  color: #8b6914;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+button {
+  background-color: #d4a574;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #8b6914;
+}
+
+/* Section services */
+.services {
+  padding: 2rem;
+}
+
+.service {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid #d4a574;
+  border-radius: 8px;
+}
+.btn {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--text-white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* pour que ça ne ressemble pas à un lien classique */
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: var(--text-white);
+}
+
