@@ -1,0 +1,30 @@
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.article {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.article img {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.article h3 {
+  margin-top: 0;
+  color: #a67856;
+}
+
+.article a {
+  color: #aa3333;
+  text-decoration: underline;
+}
