@@ -751,23 +751,68 @@ h4 {
 .icon-design::before { content: "🎨"; }
 .icon-delivery::before { content: "🚚"; }
 .icon-warranty::before { content: "🛡️"; }
-.contenu {
-    padding: 20px;
+/* Section produits */
+.produits {
+  padding: 2rem;
+}
+
+.categorie {
+  margin-bottom: 3rem;
+}
+
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
 .produit {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px 0;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
 .produit img {
-    width: 150px;
-    height: auto;
-    border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
+.produit:hover {
+  transform: translateY(-5px);
+}
+
+.prix {
+  color: #8b6914;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+button {
+  background-color: #d4a574;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #8b6914;
+}
+
+/* Section services */
+.services {
+  padding: 2rem;
+}
+
+.service {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid #d4a574;
+  border-radius: 8px;
+}
