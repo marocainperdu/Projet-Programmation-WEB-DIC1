@@ -1,8 +1,5 @@
 <?php
-include 'header.php';  // Inclusion en haut
-include 'menu.php';    // Inclusion du menu existant
-
-// Liste des produits avec 3 catégories : meubles, tapis, luminaires
+include 'header.php';  
 $products = [
     1 => ['categorie' => 'meubles', 'nom' => 'Canapé Wax', 'description' => 'Design africain en tissu wax', 'prix' => 150000, 'image' => 'images/meubles-category.jpg'],
     2 => ['categorie' => 'meubles', 'nom' => 'Chaise en bois sculpté', 'description' => 'Chaise artisanale en bois', 'prix' => 85000, 'image' => 'images/meubles-chaise.jpg'],
@@ -11,12 +8,8 @@ $products = [
     5 => ['categorie' => 'luminaires', 'nom' => 'Lampe en osier', 'description' => 'Lampe artisanale tressée', 'prix' => 55000, 'image' => 'images/luminaires-osier.jpg'],
     6 => ['categorie' => 'luminaires', 'nom' => 'Suspension en métal', 'description' => 'Lampe design industrielle', 'prix' => 120000, 'image' => 'images/luminaires-metal.jpg'],
 ];
-
-// Récupération des paramètres GET
 $selectedCategory = $_GET['category'] ?? null;
 $productId = $_GET['id'] ?? null;
-
-// Affichage fiche produit si id présent
 if ($productId && isset($products[$productId])) {
     $prod = $products[$productId];
     ?>
@@ -32,7 +25,6 @@ if ($productId && isset($products[$productId])) {
 
 <?php
 } else {
-// Affichage liste produits, filtrée ou non
 $displayProducts = [];
 if ($selectedCategory) {
     foreach ($products as $id => $prod) {
