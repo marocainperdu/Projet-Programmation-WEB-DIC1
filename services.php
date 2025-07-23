@@ -17,14 +17,12 @@ $servicesList = [
 ];
 
 $selectedService = $_GET['service'] ?? null;
-
-// Si formulaire soumis, tu peux ajouter ici le traitement (ex: envoi mail)
-// Pour l’instant on va juste afficher un message de confirmation
 $formSubmitted = $_SERVER['REQUEST_METHOD'] === 'POST';
 
 ?>
 
 <main class="services">
+
   <?php if ($formSubmitted): 
     // Récupérer les données postées
     $nom = htmlspecialchars($_POST['nom'] ?? '');
@@ -41,7 +39,6 @@ $formSubmitted = $_SERVER['REQUEST_METHOD'] === 'POST';
     <p><a href="services.php">Retour aux services</a></p>
 
   <?php elseif ($selectedService && isset($servicesList[$selectedService])): 
-    // Afficher formulaire pour le service sélectionné
     $serviceInfo = $servicesList[$selectedService];
   ?>
     <h1>Réservation : <?php echo $serviceInfo['titre']; ?></h1>
@@ -79,7 +76,7 @@ $formSubmitted = $_SERVER['REQUEST_METHOD'] === 'POST';
       <section class="service">
         <h2><?php echo $service['titre']; ?></h2>
         <p><?php echo $service['description']; ?></p>
-        <a href="services.php?service=<?php echo $key; ?>" class="btn">Choisir ce service</a>
+        <a href="services.php?service=<?php echo $key; ?>" class="btn">Prendre rendez-vous</a>
       </section>
     <?php endforeach; ?>
   <?php endif; ?>
