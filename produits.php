@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-include 'menu.php';
+
 
 // Liste des produits
 $products = [
