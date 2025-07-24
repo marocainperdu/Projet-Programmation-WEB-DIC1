@@ -23,6 +23,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <title>Déco Élégance Sénégal - Décoration & Ameublement à Dakar</title>
     <meta name="description" content="Déco Élégance - Votre spécialiste en décoration et ameublement au Sénégal. Découvrez notre collection de meubles, luminaires, tapis, artisanat sénégalais et accessoires de décoration à Dakar.">
     <link rel="stylesheet" href="style.css">
+    <?php if ($currentPage === 'realisations.php'): ?>
+    <link rel="stylesheet" href="realisations.css">
+    <?php endif; ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">

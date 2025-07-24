@@ -19,6 +19,28 @@ Ce dossier contient toutes les images utilisées sur le site.
 - `accessoires-category.jpg` - Image catégorie accessoires (400x300px)
 - `artisanat-category.jpg` - Image artisanat sénégalais (400x300px)
 
+### Blog :
+- `blog-featured.jpg` - Image article principal (800x400px)
+- `blog1.jpg` - Article salon lumineux (400x300px)
+- `blog2.jpg` - Article tendances 2025 (400x300px)
+- `blog3.jpg` - Article artisanat sénégalais (400x300px)
+- `blog4.jpg` - Article chambre tropicale (400x300px)
+- `blog5.jpg` - Article terrasse sénégalaise (400x300px)
+- `blog6.jpg` - Article cuisine africaine (400x300px)
+
+### Réalisations (Avant/Après) :
+- `avant-salon-almadies.jpg` + `apres-salon-almadies.jpg` - Villa Almadies (600x300px)
+- `avant-chambre-boheme.jpg` + `apres-chambre-boheme.jpg` - Chambre bohème (600x300px)
+- `avant-cuisine-ouverte.jpg` + `apres-cuisine-ouverte.jpg` - Cuisine ouverte (600x300px)
+- `avant-terrasse-tropicale.jpg` + `apres-terrasse-tropicale.jpg` - Terrasse (600x300px)
+- `avant-bureau-moderne.jpg` + `apres-bureau-moderne.jpg` - Bureau moderne (600x300px)
+- `avant-appart-traditionnel.jpg` + `apres-appart-traditionnel.jpg` - Appartement (600x300px)
+
+### Témoignages clients :
+- `client-aminata.jpg` - Photo Aminata Diallo (100x100px, rond)
+- `client-ibrahima.jpg` - Photo Ibrahima Fall (100x100px, rond)
+- `client-fatou.jpg` - Photo Fatou Seck (100x100px, rond)
+
 ## Conseils pour les images :
 
 1. **Format** : JPG pour les photos, PNG pour les logos avec transparence

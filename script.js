@@ -274,10 +274,126 @@ document.head.appendChild(style);
 
 // ===== LOGS POUR DEBUG (à supprimer en production) =====
 console.log('Déco Élégance - Site initialisé avec succès ✅');
-console.log('Panier initialisé avec', cart.getTotalItems(), 'articles');
 
 // Export pour usage externe
 window.DecoElegance = {
-    cart: cart,
     utils: Utils
 };
+
+// ===== FILTRES PORTFOLIO (Page Réalisations) =====
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Mettre à jour les boutons actifs
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filtrer les éléments
+                portfolioItems.forEach(item => {
+                    if (filter === '*' || item.classList.contains(filter.substring(1))) {
+                        item.style.display = 'block';
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+});
+
+// ===== EFFET AVANT/APRÈS INTERACTIF =====
+document.addEventListener('DOMContentLoaded', function() {
+    const beforeAfterContainers = document.querySelectorAll('.before-after-container');
+    
+    beforeAfterContainers.forEach(container => {
+        const beforeAfter = container.querySelector('.before-after');
+        const after = container.querySelector('.after');
+        const handle = container.querySelector('.slider-handle');
+        
+        if (!beforeAfter || !after || !handle) {
+            console.warn('Éléments avant-après manquants:', {beforeAfter, after, handle});
+            return;
+        }
+        
+        let isDragging = false;
+        
+        // Position initiale à 50%
+        updatePosition(50);
+        
+        // Fonction pour mettre à jour la position
+        function updatePosition(percentage) {
+            percentage = Math.max(0, Math.min(100, percentage));
+            after.style.clipPath = `polygon(${percentage}% 0%, 100% 0%, 100% 100%, ${percentage}% 100%)`;
+            handle.style.left = `${percentage}%`;
+        }
+        
+        // Fonction pour obtenir le pourcentage à partir des coordonnées X
+        function getPercentageFromX(x) {
+            const rect = beforeAfter.getBoundingClientRect();
+            return ((x - rect.left) / rect.width) * 100;
+        }
+        
+        // Événements de souris
+        handle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault();
+            document.body.style.userSelect = 'none';
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const percentage = getPercentageFromX(e.clientX);
+                updatePosition(percentage);
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                document.body.style.userSelect = '';
+            }
+        });
+        
+        // Événements tactiles
+        handle.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging && e.touches.length > 0) {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const percentage = getPercentageFromX(touch.clientX);
+                updatePosition(percentage);
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        
+        // Clic sur le conteneur pour déplacer le curseur
+        beforeAfter.addEventListener('click', (e) => {
+            if (e.target !== handle && !handle.contains(e.target)) {
+                const percentage = getPercentageFromX(e.clientX);
+                updatePosition(percentage);
+            }
+        });
+        
+        // Empêcher la sélection de texte pendant le glissement
+        beforeAfter.addEventListener('selectstart', (e) => {
+            if (isDragging) e.preventDefault();
+        });
+    });
+});
